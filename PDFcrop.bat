@@ -38,7 +38,7 @@ setlocal enabledelayedexpansion
 		cd ..
 		rd /s /q %WP%
 		del "%~0"
-		exit /b
+		exit
 		goto :EoF
 
 :: Downloade Strawberry und Miktex ::
