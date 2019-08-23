@@ -10,8 +10,7 @@ setlocal enabledelayedexpansion
 :: Erstelle Arbeitspfad ::
 	mkdir %WP% 2>nul & cd %WP%
 
-:: Falls wget.exe schon existiert, gehe zu :StrawMik ::
-	if exist wget.exe goto StrawMik
+:: Downloade wget, falls es nicht existiert ::
 	where wget >nul 2>&1 ||powershell wget https://github.com/TK1987/WIN/raw/master/tools/wget.exe -outfile wget.exe
 
 :: rufe Download von Strawberry und Miktex auf ::
