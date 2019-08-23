@@ -12,7 +12,7 @@ setlocal enabledelayedexpansion
 
 :: Falls wget.exe schon existiert, gehe zu :StrawMik ::
 	if exist wget.exe goto StrawMik
-	powershell wget https://github.com/TK1987/WIN/raw/master/wget.exe -outfile wget.exe
+	where wget >nul 2>&1 ||powershell wget https://github.com/TK1987/WIN/raw/master/tools/wget.exe -outfile wget.exe
 
 :: rufe Download von Strawberry und Miktex auf ::
 	:StrawMik
