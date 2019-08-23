@@ -1,6 +1,6 @@
 @echo off &setlocal enabledelayedexpansion &title Farben aus Bildern entfernen
 
-set CONF=C:\Config\Farben entfernen.conf
+set CONF=C:\Config\Farben-entfernen.conf
 
 if not exist "%CONF%" (call :Error "Konfigurationsdatei '%CONF%' existiert nicht."&goto :EoF) else (
 	if "%~1" equ "" call :Error "Keine Datei zu bearbeiten."&goto :EoF)
