@@ -32,12 +32,12 @@ setlocal enabledelayedexpansion
 	echo Warte auf Ende der Installation. Fenster bitte nicht schliessen.
 	:Beende
 		if not exist done (timeout 10 /nobreak >nul &goto :Beende)
-		echo Konfiguriere PDFcrop ^& bereinige Installationsdaten.
+		cls &echo Konfiguriere PDFcrop ^& bereinige Installationsdaten.
 		pdfcrop --help
 		cd ..
 		rd /s /q %WP%
 		del "%~0"
-		exit
+		cls &echo Installation abgeschlossen. &echo.
 		goto :EoF
 
 :: Downloade Strawberry und Miktex ::
