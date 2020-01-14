@@ -21,7 +21,7 @@
 
 :: rufe Download von Strawberry und Miktex auf ::
 	call :download "Strawberry" "http://strawberryperl.com/download/5.30.0.1/strawberry-perl-5.30.0.1-64bit.msi" || goto :EoF
-	call :download "Miktex" "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-2.9.7152-x64.exe" || goto :EoF
+	call :download "Miktex" "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-2.9.7269-x64.exe" || goto :EoF
 
 :: Erstelle Script um PDFs zuzuschneiden ::
 	mkdir %APPDATA%\script 2>nul
