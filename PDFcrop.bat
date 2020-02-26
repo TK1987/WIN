@@ -10,18 +10,18 @@
 :: Falls als 2. Instanz gestartet, gehe zu Sprungmarke :Admin, sonst starte 2. Instanz als Admin ::
 	if "%~1" equ "Admin" (goto :Admin) else (
 		for /f "Tokens=2 delims=," %%A in ('tasklist /fi "Windowtitle eq PDFcrop*" /nh /fo csv') do set PID=%%~A
-		start /min powershell start -windowstyle hidden -verb runas %0 "Admin,%USERNAME%,!PID!")
+		powershell start -windowstyle hidden -verb runas %0 "Admin,%USERNAME%,!PID!" || Exit) 2>Nul
 
 :: Erstelle Arbeitspfad ::
 	mkdir %WP% 2>nul &cd %WP%
 
 :: Downloade wget, falls es nicht existiert ::
 	ping /n 1 8.8.8.8 >nul ||goto :noInet
-	where wget >nul 2>&1 ||powershell wget https://github.com/TK1987/WIN/raw/master/tools/wget.exe -outfile wget.exe
+	where wget >nul 2>&1 ||powershell (New-Object System.Net.WebClient).DownloadFile('https://raw.github.com/TK1987/WIN/master/tools/wget.exe','wget.exe')
 
 :: rufe Download von Strawberry und Miktex auf ::
-	call :download "Strawberry" "http://strawberryperl.com/download/5.30.0.1/strawberry-perl-5.30.0.1-64bit.msi" || goto :EoF
-	call :download "Miktex" "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-2.9.7269-x64.exe" || goto :EoF
+	call :download "Strawberry" "http://strawberryperl.com/download/5.30.1.1/strawberry-perl-5.30.1.1-64bit.msi" || goto :EoF
+	call :download "Miktex" "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-2.9.7351-x64.exe" || goto :EoF
 
 :: Erstelle Script um PDFs zuzuschneiden ::
 	mkdir %APPDATA%\script 2>nul
@@ -80,10 +80,10 @@
 
 		:: Rufe Installer von Strawberry und Miktex auf ::
 			call :loop "%~3" "Strawberry" || goto :EoF
-			start msiexec /passive /i strawberry-perl-5.30.0.1-64bit.msi
+			start msiexec /passive /i strawberry-perl-5.30.1.1-64bit.msi
 
 			call :loop "%~3" "Miktex" || goto :EoF
-			basic-miktex-2.9.7152-x64.exe --auto-install=yes --shared --unattended
+			basic-miktex-2.9.7351-x64.exe --auto-install=yes --shared --unattended
 			
 			echo. >done
 			icacls %WP% /T /setowner %2
