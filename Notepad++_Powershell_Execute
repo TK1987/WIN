@@ -1,0 +1,1 @@
+powershell -NoExit -ExecutionPolicy ByPass -Command "cd $(CURRENT_DIRECTORY);. .\$(FILE_NAME)"
