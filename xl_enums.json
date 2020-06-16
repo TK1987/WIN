@@ -1,0 +1,982 @@
+[
+    {
+        "Name":  "xlDefaultAutoFormat",
+        "Value":  -1,
+        "Description":  "-1"
+    },
+    {
+        "Name":  "xlGuess",
+        "Value":  0,
+        "Description":  "In Excel wird ermittelt, ob eine Überschrift vorhanden ist, und wenn ja, wo sich diese befindet."
+    },
+    {
+        "Name":  "xlAbove",
+        "Value":  0,
+        "Description":  "0"
+    },
+    {
+        "Name":  "SortOnValues",
+        "Value":  0,
+        "Description":  "Werte."
+    },
+    {
+        "Name":  "xlFirst",
+        "Value":  0,
+        "Description":  "0"
+    },
+    {
+        "Name":  "xlSolid",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlTiled",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlSystem",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlBelow",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlShort",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlFixedValue",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlGeneral",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlClassic1",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlNarrow",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlDoubleQuote",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlSquare",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlExcelMenus",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlIcons",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlFullScript",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "SortOnCellColor",
+        "Value":  1,
+        "Description":  "Zellenfarbe"
+    },
+    {
+        "Name":  "xlWorksheet4",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlHAlignGeneral",
+        "Value":  1,
+        "Description":  "Nach Datentyp ausrichten"
+    },
+    {
+        "Name":  "xlToolbar",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlYes",
+        "Value":  1,
+        "Description":  "Der gesamte Bereich soll nicht sortiert werden."
+    },
+    {
+        "Name":  "xlPinYin",
+        "Value":  1,
+        "Description":  "Phonetische chinesische Sortierreihenfolge für Zeichen. Dies ist der Standardwert."
+    },
+    {
+        "Name":  "xlAscending",
+        "Value":  1,
+        "Description":  "Sortiert das angegebene Feld in aufsteigender Reihenfolge. Dies ist der Standardwert."
+    },
+    {
+        "Name":  "xlLogicalCursor",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlBoth",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlOn",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlTopToBottom",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlLast",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlDirect",
+        "Value":  1,
+        "Description":  "1"
+    },
+    {
+        "Name":  "xlAdd",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlContents",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlClassic2",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlChart4",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlConstants",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlDiamond",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlCorner",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlToolbarButton",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlLotusHelp",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlStroke",
+        "Value":  2,
+        "Description":  "Sortierung nach der Anzahl der Striche in jedem Zeichen."
+    },
+    {
+        "Name":  "xlPercent",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlPartialScript",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlGregorian",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlSingleQuote",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlDescending",
+        "Value":  2,
+        "Description":  "Sortiert das angegebene Feld in absteigender Reihenfolge."
+    },
+    {
+        "Name":  "xlStrict",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlNo",
+        "Value":  2,
+        "Description":  "Standardwert. Der gesamte Bereich soll sortiert werden."
+    },
+    {
+        "Name":  "xlSingle",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlInside",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlPlusValues",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlLeftToRight",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlTransparent",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlInteger",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlBar",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlVeryHidden",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlSemiautomatic",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlMixed",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlMaximum",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlOpen",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlShowValue",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "SortOnFontColor",
+        "Value":  2,
+        "Description":  "Schriftfarbe"
+    },
+    {
+        "Name":  "xlVisualCursor",
+        "Value":  2,
+        "Description":  "2"
+    },
+    {
+        "Name":  "xlSubtract",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlHindiNumerals",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlBidiCalendar",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlScale",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlNoDocuments",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlShowPercent",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlWorksheetCell",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlWide",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlClosed",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlMixedScript",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlMinusValues",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlLong",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlColumn",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlPartial",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlClassic3",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlOpaque",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlOutside",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "SortOnIcon",
+        "Value":  3,
+        "Description":  "Symbol."
+    },
+    {
+        "Name":  "xlTriangle",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlExtended",
+        "Value":  3,
+        "Description":  "3"
+    },
+    {
+        "Name":  "xlDoubleOpen",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlNextToAxis",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlCross",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlMinimum",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlShowLabel",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlReference",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlStError",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlComplete",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlSingleAccounting",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlMixedAuthorizedScript",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlMultiply",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlAccounting1",
+        "Value":  4,
+        "Description":  "4"
+    },
+    {
+        "Name":  "xlFormula",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlDoubleClosed",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlShowLabelAndPercent",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlStar",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlAccounting2",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlHAlignFill",
+        "Value":  5,
+        "Description":  "Füllung"
+    },
+    {
+        "Name":  "xlDivide",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlFill",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlFloating",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlWorksheetShort",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlDoubleAccounting",
+        "Value":  5,
+        "Description":  "5"
+    },
+    {
+        "Name":  "xlAccounting3",
+        "Value":  6,
+        "Description":  "6"
+    },
+    {
+        "Name":  "xlWorkbookTab",
+        "Value":  6,
+        "Description":  "6"
+    },
+    {
+        "Name":  "xlChartShort",
+        "Value":  6,
+        "Description":  "6"
+    },
+    {
+        "Name":  "xlColor1",
+        "Value":  7,
+        "Description":  "7"
+    },
+    {
+        "Name":  "xlAllExceptBorders",
+        "Value":  7,
+        "Description":  "7"
+    },
+    {
+        "Name":  "xlCenterAcrossSelection",
+        "Value":  7,
+        "Description":  "7"
+    },
+    {
+        "Name":  "xlCascade",
+        "Value":  7,
+        "Description":  "7"
+    },
+    {
+        "Name":  "xlHAlignCenterAcrossSelection",
+        "Value":  7,
+        "Description":  "In Auswahl zentrieren"
+    },
+    {
+        "Name":  "xlMacrosheetCell",
+        "Value":  7,
+        "Description":  "7"
+    },
+    {
+        "Name":  "xlCircle",
+        "Value":  8,
+        "Description":  "8"
+    },
+    {
+        "Name":  "xlColor2",
+        "Value":  8,
+        "Description":  "8"
+    },
+    {
+        "Name":  "xlTitleBar",
+        "Value":  8,
+        "Description":  "8"
+    },
+    {
+        "Name":  "xlChecker",
+        "Value":  9,
+        "Description":  "9"
+    },
+    {
+        "Name":  "xlDesktop",
+        "Value":  9,
+        "Description":  "9"
+    },
+    {
+        "Name":  "xlColor3",
+        "Value":  9,
+        "Description":  "9"
+    },
+    {
+        "Name":  "xlPlus",
+        "Value":  9,
+        "Description":  "9"
+    },
+    {
+        "Name":  "xlList1",
+        "Value":  10,
+        "Description":  "10"
+    },
+    {
+        "Name":  "xlSemiGray75",
+        "Value":  10,
+        "Description":  "10"
+    },
+    {
+        "Name":  "xlWatchPane",
+        "Value":  11,
+        "Description":  "11"
+    },
+    {
+        "Name":  "xlLastCell",
+        "Value":  11,
+        "Description":  "11"
+    },
+    {
+        "Name":  "xlLightHorizontal",
+        "Value":  11,
+        "Description":  "11"
+    },
+    {
+        "Name":  "xlList2",
+        "Value":  11,
+        "Description":  "11"
+    },
+    {
+        "Name":  "xlVisible",
+        "Value":  12,
+        "Description":  "12"
+    },
+    {
+        "Name":  "xlLightVertical",
+        "Value":  12,
+        "Description":  "12"
+    },
+    {
+        "Name":  "xlList3",
+        "Value":  12,
+        "Description":  "12"
+    },
+    {
+        "Name":  "xlImmediatePane",
+        "Value":  12,
+        "Description":  "12"
+    },
+    {
+        "Name":  "xlLightDown",
+        "Value":  13,
+        "Description":  "13"
+    },
+    {
+        "Name":  "xlDebugCodePane",
+        "Value":  13,
+        "Description":  "13"
+    },
+    {
+        "Name":  "xl3DEffects1",
+        "Value":  13,
+        "Description":  "13"
+    },
+    {
+        "Name":  "xlDrawingObject",
+        "Value":  14,
+        "Description":  "14"
+    },
+    {
+        "Name":  "xl3DEffects2",
+        "Value":  14,
+        "Description":  "14"
+    },
+    {
+        "Name":  "xlLightUp",
+        "Value":  14,
+        "Description":  "14"
+    },
+    {
+        "Name":  "xlLocalFormat1",
+        "Value":  15,
+        "Description":  "15"
+    },
+    {
+        "Name":  "xlGrid",
+        "Value":  15,
+        "Description":  "15"
+    },
+    {
+        "Name":  "xlTextBox",
+        "Value":  16,
+        "Description":  "16"
+    },
+    {
+        "Name":  "xlCrissCross",
+        "Value":  16,
+        "Description":  "16"
+    },
+    {
+        "Name":  "xlLocalFormat2",
+        "Value":  16,
+        "Description":  "16"
+    },
+    {
+        "Name":  "xlGray16",
+        "Value":  17,
+        "Description":  "17"
+    },
+    {
+        "Name":  "xlChartSeries",
+        "Value":  17,
+        "Description":  "17"
+    },
+    {
+        "Name":  "xlAccounting4",
+        "Value":  17,
+        "Description":  "17"
+    },
+    {
+        "Name":  "xlGray8",
+        "Value":  18,
+        "Description":  "18"
+    },
+    {
+        "Name":  "xlChartTitles",
+        "Value":  18,
+        "Description":  "18"
+    },
+    {
+        "Name":  "xlEntireChart",
+        "Value":  20,
+        "Description":  "20"
+    },
+    {
+        "Name":  "xlGridline",
+        "Value":  22,
+        "Description":  "22"
+    },
+    {
+        "Name":  "xlRTL",
+        "Value":  -5004,
+        "Description":  "-5004"
+    },
+    {
+        "Name":  "xlLTR",
+        "Value":  -5003,
+        "Description":  "-5003"
+    },
+    {
+        "Name":  "xlContext",
+        "Value":  -5002,
+        "Description":  "-5002"
+    },
+    {
+        "Name":  "xlLatin",
+        "Value":  -5001,
+        "Description":  "-5001"
+    },
+    {
+        "Name":  "xlBidi",
+        "Value":  -5000,
+        "Description":  "-5000"
+    },
+    {
+        "Name":  "xlUp",
+        "Value":  -4162,
+        "Description":  "Bis."
+    },
+    {
+        "Name":  "xlToRight",
+        "Value":  -4161,
+        "Description":  "Nach rechts"
+    },
+    {
+        "Name":  "xlVAlignTop",
+        "Value":  -4160,
+        "Description":  "Nach oben"
+    },
+    {
+        "Name":  "xlTop",
+        "Value":  -4160,
+        "Description":  "-4160"
+    },
+    {
+        "Name":  "xlToLeft",
+        "Value":  -4159,
+        "Description":  "Nach links"
+    },
+    {
+        "Name":  "xlSimple",
+        "Value":  -4154,
+        "Description":  "-4154"
+    },
+    {
+        "Name":  "xlHAlignRight",
+        "Value":  -4152,
+        "Description":  "Rechts"
+    },
+    {
+        "Name":  "xlRight",
+        "Value":  -4152,
+        "Description":  "-4152"
+    },
+    {
+        "Name":  "xlOff",
+        "Value":  -4146,
+        "Description":  "-4146"
+    },
+    {
+        "Name":  "xlNotes",
+        "Value":  -4144,
+        "Description":  "-4144"
+    },
+    {
+        "Name":  "xlNone",
+        "Value":  -4142,
+        "Description":  "-4142"
+    },
+    {
+        "Name":  "xlModule",
+        "Value":  -4141,
+        "Description":  "-4141"
+    },
+    {
+        "Name":  "xlManual",
+        "Value":  -4135,
+        "Description":  "-4135"
+    },
+    {
+        "Name":  "xlManual",
+        "Value":  -4135,
+        "Description":  "Manuelle Sortierung (Sie können Elemente ziehen, um Sie neu anzuordnen)."
+    },
+    {
+        "Name":  "xlLow",
+        "Value":  -4134,
+        "Description":  "-4134"
+    },
+    {
+        "Name":  "xlLeft",
+        "Value":  -4131,
+        "Description":  "-4131"
+    },
+    {
+        "Name":  "xlHAlignLeft",
+        "Value":  -4131,
+        "Description":  "Links"
+    },
+    {
+        "Name":  "xlJustify",
+        "Value":  -4130,
+        "Description":  "-4130"
+    },
+    {
+        "Name":  "xlHAlignJustify",
+        "Value":  -4130,
+        "Description":  "Blocksatz"
+    },
+    {
+        "Name":  "xlVAlignJustify",
+        "Value":  -4130,
+        "Description":  "Ausrichten"
+    },
+    {
+        "Name":  "xlHigh",
+        "Value":  -4127,
+        "Description":  "-4127"
+    },
+    {
+        "Name":  "xlGray75",
+        "Value":  -4126,
+        "Description":  "-4126"
+    },
+    {
+        "Name":  "xlGray50",
+        "Value":  -4125,
+        "Description":  "-4125"
+    },
+    {
+        "Name":  "xlGray25",
+        "Value":  -4124,
+        "Description":  "-4124"
+    },
+    {
+        "Name":  "xlFormats",
+        "Value":  -4122,
+        "Description":  "-4122"
+    },
+    {
+        "Name":  "xlDown",
+        "Value":  -4121,
+        "Description":  "Dropdown."
+    },
+    {
+        "Name":  "xlHAlignDistributed",
+        "Value":  -4117,
+        "Description":  "Verteilen"
+    },
+    {
+        "Name":  "xlVAlignDistributed",
+        "Value":  -4117,
+        "Description":  "Verteilten"
+    },
+    {
+        "Name":  "xlDistributed",
+        "Value":  -4117,
+        "Description":  "-4117"
+    },
+    {
+        "Name":  "xlCustom",
+        "Value":  -4114,
+        "Description":  "-4114"
+    },
+    {
+        "Name":  "xlCombination",
+        "Value":  -4111,
+        "Description":  "-4111"
+    },
+    {
+        "Name":  "xlHAlignCenter",
+        "Value":  -4108,
+        "Description":  "Zentrieren"
+    },
+    {
+        "Name":  "xlCenter",
+        "Value":  -4108,
+        "Description":  "-4108"
+    },
+    {
+        "Name":  "xlVAlignCenter",
+        "Value":  -4108,
+        "Description":  "Zentriert"
+    },
+    {
+        "Name":  "xlBottom",
+        "Value":  -4107,
+        "Description":  "-4107"
+    },
+    {
+        "Name":  "xlVAlignBottom",
+        "Value":  -4107,
+        "Description":  "Nach unten"
+    },
+    {
+        "Name":  "xlAutomatic",
+        "Value":  -4105,
+        "Description":  "-4105"
+    },
+    {
+        "Name":  "xlAll",
+        "Value":  -4104,
+        "Description":  "-4104"
+    },
+    {
+        "Name":  "xl3DSurface",
+        "Value":  -4103,
+        "Description":  "-4103"
+    },
+    {
+        "Name":  "xl3DBar",
+        "Value":  -4099,
+        "Description":  "-4099"
+    }
+]
