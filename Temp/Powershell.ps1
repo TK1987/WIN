@@ -1,36 +1,17 @@
-$PfadA     = "C:\Tools\Einrichten\Users\AllUsers\AppData\Local\Microsoft\Windows\Shell\LayoutModification.xml"
-$PfadB     = "\\xxx\SYSVOL\xxx\Scripts\Apps\Start\StartLayout.xml"
-$Schlüssel = 'Registry::HKCU\Software\Policies\Microsoft\Windows\Explorer'
+# Neuste Excelversion finden
+$ExcelPfad = (ls -r "$Env:Systemdrive\Program Files*\Microsoft Office\Excel.exe"|sort -d Directory|select -First 1).Fullname
 
-
-if (Test-Path $Schlüssel) {
-  switch ((gp $Schlüssel).StartLayoutFile) {
-    $PfadA {
-      write-host -n "Schlüssel wird umgestellt auf '$PfadB'... "
-      try {
-        Set-Itemproperty -Path $Schlüssel -Name 'StartLayoutFile' -Value $PfadB -EA stop
-        write-host -f green "erfolgreich."
-        } catch {write-host -f red $_.Exception.Message}
-      }
-    $PfadB {
-      write-host -n "Schlüssel wird umgestellt auf '$PfadA'... "
-      try {
-        Set-Itemproperty -Path $Schlüssel -Name 'StartLayoutFile' -Value $PfadA -EA stop
-        write-host -f green "erfolgreich."
-        } catch {write-host -f red $_.Exception.Message}
-      }
-    }
-  }
-else {
-	write-host -n "Schlüssel '$Schlüssel' wird erstellt... "
-	try {
-		md -force $Schlüssel -EA Stop >$NULL 
-		write-host -f green "erfolgreich."
-		write-host -n "Pfad '$PfadB' wird zugeordnet... "
-		Set-Itemproperty -Path $Schlüssel -Name 'StartLayoutFile' -Value $PfadB -EA stop
-		write-host -f green "erfolgreich."
-		} catch {write-host -f red $_.Exception.Message}
+# Kontextmenüeinträge erstellen
+'.xls','.xlsx' | % {
+	$Keyname = (gp "Registry::HKCR\$_" -EA si).'(default)'
+	if ($Keyname) {try {
+		write-host -n "Erstelle Kontextmenüeinträge für '$_'... "
+		md -Force "Registry::HKCU\Software\Classes\$Keyname\shell\Excel\command"                    >$NULL -EA stop
+		md -Force "Registry::HKCU\Software\Classes\$Keyname\shell\Excel (schreibgeschützt)\command" >$NULL -EA stop
+		Set-Itemproperty -Path "Registry::HKCU\Software\Classes\$Keyname\shell\Excel\command"                    -Name '(default)' -Value """$ExcelPfad"" ""%1"""
+		Set-Itemproperty -Path "Registry::HKCU\Software\Classes\$Keyname\shell\Excel (schreibgeschützt)\command" -Name '(default)' -Value """$ExcelPfad"" /r ""%1"""
+		Set-Itemproperty -Path "Registry::HKCU\Software\Classes\$Keyname\shell\Excel"                            -Name 'Icon' -Value """$ExcelPfad"""
+		Set-Itemproperty -Path "Registry::HKCU\Software\Classes\$Keyname\shell\Excel (schreibgeschützt)"         -Name 'Icon' -Value """$ExcelPfad"""
+		write-host -f green "erfolgreich. "
+		} catch {write-host -f red $_.Exception.Message}}
 	}
-
-write-host -n "`nBeliebige Taste zum Beenden... "
-[void][console]::ReadKey($true)
