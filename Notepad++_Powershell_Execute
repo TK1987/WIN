@@ -1,1 +1,1 @@
-powershell -NoExit -ExecutionPolicy ByPass -Command "cd -Lit '$(CURRENT_DIRECTORY)';. .\$(FILE_NAME)"
+powershell -NoExit -ExecutionPolicy ByPass -Command "cd -Lit '$(CURRENT_DIRECTORY)';. '.\$(FILE_NAME)'"
