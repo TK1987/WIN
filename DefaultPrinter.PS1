@@ -9,20 +9,28 @@ Process { while ($true) {
   cls
   [Console]::CursorVisible = $false
   $Width = [Console]::WindowWidth
+  
+  # Kopfzeile
   write-host "".PadRight($width,[char]22)
   write-host " Standarddrucker wählen "
   write-host ("".PadRight($width,[char]22)+"`n")
   
+  # Auswahlliste erzeugen
   Foreach ($Printer in $Printers) {write-host @ColorN " $c $($Printer.Name.PadRight($width-3,' '))"}
+  
+  # Fußleiste / Steuerungszeile
   write-host -n ("`n".PadRight($width+1,[char]22)+" ")
   write-host -n @ColorC "[Esc]"
-  Write-host -n @ColorN " Abbruch     "
+  write-host -n @ColorN " Abbruch     "
   write-host -n @ColorC "[Enter]"
   write-host @ColotN " Bestätigen"
   write-host "".PadRight($width,[char]22)
+  
+  # Bisherigen Standarddrucker markieren
   [Console]::CursorTop = $i+4
   write-host -n @ColorC "`r $c $($Printers[$i].Name.Padright($Width-3,' '))"
   
+  # Tastatursteuerung
   while ([Console]::WindowWidth -eq $Width) { switch ([Console]::ReadKey($true).Key) {
     'UpArrow' {
       write-host -n @ColorN "`r $c $($Printers[$i].Name.Padright($Width-3,' '))"
