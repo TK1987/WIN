@@ -1,9 +1,11 @@
 Begin {
-  $ColorN = @{ F='White' ; B='DarkMagenta' }
+  $ColorN = @{ F='White' ; B='Black' }
   $ColorC = @{ F='Black' ; B='White' }
   $Printers = Get-WmiObject Win32_Printer
   $i = $Printers.Default.IndexOf($true)
   $c = [char]16
+  $PrefColor = $Host.UI.RawUI.BackgroundColor
+  $Host.UI.RawUI.BackgroundColor = 'Black'
 }
 Process { while ($true) {
   cls
@@ -23,14 +25,14 @@ Process { while ($true) {
   write-host -n @ColorC "[Esc]"
   write-host -n @ColorN " Abbruch     "
   write-host -n @ColorC "[Enter]"
-  write-host @ColotN " Bestätigen"
+  write-host @ColotN "Bestätigen"
   write-host "".PadRight($width,[char]22)
   
   # Bisherigen Standarddrucker markieren
   [Console]::CursorTop = $i+4
   write-host -n @ColorC "`r $c $($Printers[$i].Name.Padright($Width-3,' '))"
-  
-  # Tastatursteuerung
+    
+  # Navigation
   while ([Console]::WindowWidth -eq $Width) { switch ([Console]::ReadKey($true).Key) {
     'UpArrow' {
       write-host -n @ColorN "`r $c $($Printers[$i].Name.Padright($Width-3,' '))"
@@ -45,12 +47,15 @@ Process { while ($true) {
       write-host -n @ColorC "`r $c $($Printers[$i].Name.Padright($width-3,' '))"
     }
     'Enter'  {
+      $Host.UI.RawUI.BackgroundColor = $PrefColor
       cls
       [void]$Printers[$i].SetDefaultPrinter()
       write-host "'$($Printers[$i].Name)' ist jetzt der Standarddrucker. "
       Return
       }
-    'Escape' {cls ; Return}
+    'Escape' {$Host.UI.RawUI.BackgroundColor=$PrefColor ; cls ; Return}
   }}
 }}
-End { [Console]::CursorVisible = $true }
+End {
+  [Console]::CursorVisible = $true
+  }
