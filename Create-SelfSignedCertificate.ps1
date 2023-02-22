@@ -1,4 +1,4 @@
-﻿try {
+try {
   
   # Grundeinstellungen                                                                                                    #region
     $ErrorActionPreference = 'Stop'
