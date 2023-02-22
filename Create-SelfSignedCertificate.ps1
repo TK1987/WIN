@@ -1,4 +1,4 @@
-﻿try {
+try {
   
   # Grundeinstellungen                                                                                                    #region
     $ErrorActionPreference = 'Stop'
@@ -99,8 +99,7 @@
     $SL = if (([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))
     {'LocalMachine'} else {'CurrentUser'}
     
-	$Output   = "{0}\Desktop\{1}.cer" -f $HOME,$Table.Controls["CN"].Text
-    $Export   = Export-Certificate -FilePath $Output -Cert $Cert
+    $Export   = Export-Certificate -FilePath ("{0}\Desktop\{1}.cer" -f $HOME,$Table.Controls["CN"].Text) -Cert $Cert
     Write-Host -N "Installiere Zertifikat in ""Vertauenswürdige Stammzertifikate""... "
     $Root     = Get-Item "Cert:\$SL\Root"
     $Root.Open("ReadWrite")
@@ -113,7 +112,6 @@
     $Trusted.Open("ReadWrite")
     $Trusted.Add($Export.Fullname)
     Write-Host -F green "erfolgreich. "
-    rm $Export
   # /Ausführung                                                                                                           #endregion
   
 } catch {
