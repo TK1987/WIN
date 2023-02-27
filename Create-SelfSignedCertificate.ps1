@@ -99,7 +99,7 @@ try {
     $SL = if (([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))
     {'LocalMachine'} else {'CurrentUser'}
     
-    $Export   = "{0}\Desktop\{1}.cer" -f $HOME,$Table.Controls["CN"].Text
+    $Export   = "{0}\{1}.cer" -f [Environment]::GetFolderPath('Desktop'),$Table.Controls["CN"].Text
     "{0}{1} {3}{0}`n{4}`n{0}{2} {3}{0}" -f ('-'*5),'BEGIN','END','CERTIFICATE',[convert]::ToBase64String($Cert.RawData,'i') | Set-Content -enc Default -Path $Export |Out-Null
     Write-Host -N "Installiere Zertifikat in ""Vertauenswürdige Stammzertifikate""... "
     $Root     = Get-Item "Cert:\$SL\Root"
