@@ -58,14 +58,14 @@
   
   # Bei Fensterstart, Settings laden und einsetzen
   $Form.Add_Load({
-    if (Test-Path "HKCU:\Software\IMG2Dir-pa") {
-      $Settings = gp "HKCU:\Software\IMG2Dir-pa"
+    if (Test-Path "HKCU:\Software\Img2Dir-pa") {
+      $Settings = gp "HKCU:\Software\Img2Dir-pa"
       $this.Controls[0].Controls["otb"].Text = $Settings.Open
       $this.Controls[0].Controls["stb"].Text = $Settings.Save
       $this.Controls[0].Controls["Recurse"].Checked  = $Settings.Recurse
       $this.Controls[0].Controls["DelEmpty"].Checked = $Settings.DelEmpty
       
-    } else {[void](ni -force "HKCU:\Software\IMG2Dir-pa")}
+    } else {[void](ni -force "HKCU:\Software\Img2Dir-pa")}
   })
   
   # Bei Klick auf Kontrollbuttons, Buttonname als Fenstertag setzen und Fenster beenden
@@ -112,10 +112,10 @@
           Recurse  = [int]$Form.Controls[0].Controls["recurse"].Checked
           DelEmpty = [int]$Form.Controls[0].Controls["DelEmpty"].Checked
         }
-        [void](New-ItemProperty -Force "HKCU:\Software\IMG2Dir-pa" "open"     -Value $Settings.Open)
-        [void](New-ItemProperty -Force "HKCU:\Software\IMG2Dir-pa" "save"     -Value $Settings.Save)
-        [void](New-ItemProperty -Force "HKCU:\Software\IMG2Dir-pa" "Recurse"  -Value ([int]$Settings.Recurse))
-        [void](New-ItemProperty -Force "HKCU:\Software\IMG2Dir-pa" "DelEmpty" -Value ([int]$Settings.DelEmpty))
+        [void](New-ItemProperty -Force "HKCU:\Software\Img2Dir-pa" "open"     -Value $Settings.Open)
+        [void](New-ItemProperty -Force "HKCU:\Software\Img2Dir-pa" "save"     -Value $Settings.Save)
+        [void](New-ItemProperty -Force "HKCU:\Software\Img2Dir-pa" "Recurse"  -Value ([int]$Settings.Recurse))
+        [void](New-ItemProperty -Force "HKCU:\Software\Img2Dir-pa" "DelEmpty" -Value ([int]$Settings.DelEmpty))
         $Options = @{Recurse=$Settings.Recurse}
         $Files = Get-ChildItem @Options "$($Settings.Open)\*" -Include $Format
         Foreach ($FG in $Files |Group {$Settings.Save+'\'+$_.LastWriteTime.Year}) {
