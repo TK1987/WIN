@@ -1,87 +1,90 @@
-try {
-  
-  # Grundeinstellungen                                                                                                    #region
-    $ErrorActionPreference = 'Stop'
-    Add-Type -A System.Windows.Forms
-    [Windows.Forms.Application]::EnableVisualStyles()
-    $Fonts = @(
-      [Drawing.Font]::New('Microsoft Sans Serif',12,[Drawing.FontStyle]'Bold')
-      [Drawing.Font]::New('Calibri',             12,[Drawing.FontStyle]'Bold, Italic')
-      [Drawing.Font]::New('Microsoft Sans Serif',14)
-    )
-  # /Grundeinstellungen                                                                                                   #endregion
-  
-  # Fensterelemente                                                                                                       #region
-    $Form  = [Windows.Forms.Form]@{Text="Code-Signatur Zertifikat erstellen & installieren"; StartPosition='CenterScreen'
-             AutoSize=$true; KeyPreview=$true; Font=$Fonts[0] ; Padding='10,10,10,10'; FormBorderStyle='FixedSingle'}
-    $Table = [Windows.Forms.TableLayoutPanel]@{AutoSize=$true ; Dock='Fill' ; Name="Table"; <#CellBorderStyle='Single'#>}
-    $Labels = @(
-      [Windows.Forms.Label]@{Text="Name";                    AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="E-Mail";                  AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Firma";                   AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Ländercode (2-stellig)";  AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Bundesland";              AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Stadt";                   AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Gültigkeit in Jahren";    AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
-    )
-    $Textbox = @(
-      [Windows.Forms.TextBox]@{Name="CN"; AutoSize=$true; Anchor='Left'; Width=200; Margin='10,10,10,10'}
-      [Windows.Forms.TextBox]@{Name="E";  AutoSize=$true; Anchor='Left'; Width=200; Margin='10,10,10,10'}
-      [Windows.Forms.TextBox]@{Name="OU"; AutoSize=$true; Anchor='Left'; Width=200; Margin='10,10,10,10'}
-      [Windows.Forms.TextBox]@{Name="C";  AutoSize=$true; Anchor='Left'; Width=40;  Margin='10,10,10,10'; Text="DE"; Tag='^[a-z]{0,2}$'}
-      [Windows.Forms.TextBox]@{Name="St"; AutoSize=$true; Anchor='Left'; Width=200; Margin='10,10,10,10'}
-      [Windows.Forms.TextBox]@{Name="L";  AutoSize=$true; Anchor='Left'; Width=200; Margin='10,10,10,10'}
-      [Windows.Forms.TextBox]@{Name="nA"; AutoSize=$true; Anchor='Left'; Width=40;  Margin='10,10,10,10'; Text="10"; Tag='^([1-9]\d?)?$'}
-    )
-    $Info = @(
-      [Windows.Forms.Label]@{Text="Pflichtfeld"; AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#C00000'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
-      [Windows.Forms.Label]@{Text="Pflichtfeld"; AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#C00000'; Anchor='Left'; TextAlign='MiddleLeft'}  
-    )
-    $Button = [Windows.Forms.Button]@{Name='Button'; Text='Erstellen'; Size="200,50"; Anchor="Bottom"; Font=$Fonts[2]; Enabled=$false; Margin='10,10,10,10'}
-  # /Fensterelemente                                                                                                      #endregion
-  
-  # Fensteranordnung                                                                                                      #region
-    Foreach ($i in 0..($Labels.Count-1)) {$Table.Controls.Add($Labels[$i],0,$i) ; $Table.Controls.Add($Textbox[$i],1,$i) ; $Table.Controls.Add($Info[$i],2,$i)};$i++
-    $Table.Controls.Add($Button,0,$i)
-    $Table.SetColumnSpan($Button,3)
-    $Form.Controls.Add($Table)
-  # /Fensteranordnung                                                                                                     #endregion
-  
-  # Eventhandler                                                                                                          #region
-  
-    # Button aktivieren/deaktivieren, falls Name und Gültigkeit gesetzt/leer sind
-    $Table.Controls["CN"].Add_TextChanged({$this.Parent.Controls["Button"].Enabled = if ($this.Text -And $this.Parent.Controls["nA"].Text) {$true} else {$false}})
-    $Table.Controls["nA"].Add_TextChanged({$this.Parent.Controls["Button"].Enabled = if ($this.Text -And $this.Parent.Controls["CN"].Text) {$true} else {$false}})
+﻿#region Grundeinstellungen
+  using namespace System.Windows.Forms
+  using namespace System.Drawing
+  $ErrorActionPreference = 'Stop'
+  Add-Type -A System.Windows.Forms
+  [Application]::EnableVisualStyles()
+  $Fonts = @(
+    [Font]::New('Microsoft Sans Serif',12,[FontStyle]'Bold')
+    [Font]::New('Calibri',             12,[FontStyle]'Bold, Italic')
+    [Font]::New('Microsoft Sans Serif',14)
+  )
+#endregion Grundeinstellungen
 
-    # Zeichenbeschränkungen:   Ländercode = 0-2 Buchstaben   ;   Gültigkeit = Zahlen 1-99
-    $Table.Controls["C","nA"].Add_KeyPress({$_.KeyChar=([string]$_.KeyChar).ToUpper() ;Switch ($_){
-      # Tasten(kombi) zulassen: Strg+A, Strg+C, Strg+X, Backspace
-      {$_.KeyChar -In 1,2,24,8} {Break}
-      
-      # Bei Strg+V prüfen, ob Inhalt nach dem Einfügen valide ist.
-      {$_.KeyChar -eq 22} {if ($this.Text.Remove($this.SelectionStart,$this.SelectionLength).Insert($this.SelectionStart,(Get-Clipboard)) -NotMatch $this.Tag) {$_.Handled=$true;break} else {break}}
+#region Controls
+  $Form  = [Form]@{Text="Zertifikat zur Codesignatur erstellen & installieren"; StartPosition='CenterScreen'
+           AutoSize=$true; KeyPreview=$true; Font=$Fonts[0] ; Padding='10,10,10,10'}
+  $Table = [TableLayoutPanel]@{AutoSize=$true ; Dock='Fill' ; Name="Table"}
+  $Labels = @(
+    [Label]@{Text="Name";                   AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="E-Mail";                 AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Firma";                  AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Ländercode (2-stellig)"; AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Bundesland";             AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Stadt";                  AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Gültigkeit in Jahren";   AutoSize=$true; Margin='10,10,10,10'; Anchor='Left'; TextAlign='MiddleLeft'}
+  )
+  $Textbox = @(
+    [TextBox]@{Name="CN"; Dock='Fill';   MinimumSize="150,10"; Margin='10,10,10,10'}
+    [TextBox]@{Name="E";  Dock='Fill';   MinimumSize="150,10"; Margin='10,10,10,10'}
+    [TextBox]@{Name="OU"; Dock='Fill';   MinimumSize="150,10"; Margin='10,10,10,10'}
+    [TextBox]@{Name="C";  Anchor='Left'; Width=40; TextAlign='Center'; Margin='10,10,10,10'; Text="DE"; Tag='^[a-z]{0,2}$'}
+    [TextBox]@{Name="St"; Dock='Fill';   MinimumSize="150,10"; Margin='10,10,10,10'}
+    [TextBox]@{Name="L";  Dock='Fill';   MinimumSize="150,10"; Margin='10,10,10,10'}
+    [TextBox]@{Name="nA"; Anchor='Left'; Width=40; TextAlign='Center'; Margin='10,10,10,10'; Text="10"; Tag='^([1-9]\d{0,1}|)$'}
+  )
+  $Info = @(
+    [Label]@{Text="Pflichtfeld"; AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#C00000'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Optional";    AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#00A000'; Anchor='Left'; TextAlign='MiddleLeft'}
+    [Label]@{Text="Pflichtfeld"; AutoSize=$true; Margin='10,10,10,10'; Font=$Fonts[1]; ForeColor='#C00000'; Anchor='Left'; TextAlign='MiddleLeft'}  
+  )
+  $Button = [Button]@{Name='Button'; Text='Erstellen'; Size="200,50"; Anchor="Bottom"; Font=$Fonts[2]; Enabled=$false; Margin='10,10,10,10'}
+#endregion Controls
 
-      # Illegale Eingaben ignorieren
-      {$this.Text.Remove($this.SelectionStart,$this.SelectionLength).Insert($this.SelectionStart,$_.KeyChar) -NotMatch $this.Tag} {$_.Handled=$true;break}
-    }})
-    
-    # Bei Button-Klick Fenster verstecken & Button-Tag auf true setzen
-    $Table.Controls["Button"].Add_Click({$this.Tag=$true;$this.TopLevelControl.Hide()})
-    
-    # Fenstersteuerung mit Tastatur:   Escape = Abbrechen   ;   Enter = Button auslösen
-    $Form.Add_KeyDown({Switch ($_.KeyCode){
-      "Return" {$this.Controls["Table"].Controls["Button"].PerformClick()}
-      "Escape" {$this.Hide()}
-    }})
-    
-  # /Eventhandler                                                                                                         #endregion
+#region Layout
+  [void]$Table.ColumnStyles.Add([ColumnStyle]::New('AutoSize'))
+  [void]$Table.ColumnStyles.Add([ColumnStyle]::New('Percent',100))
+  [void]$Table.ColumnStyles.Add([ColumnStyle]::New('AutoSize'))
+  Foreach ($i in 0..($Labels.Count-1)) {$Table.Controls.Add($Labels[$i],0,$i) ; $Table.Controls.Add($Textbox[$i],1,$i) ; $Table.Controls.Add($Info[$i],2,$i)};$i++
+  $Table.Controls.Add($Button,0,$i)
+  $Table.SetColumnSpan($Button,3)
+  $Form.Controls.Add($Table)
+#endregion Layout
+
+#region Events
+
+  # Button aktivieren/deaktivieren, falls Name und Gültigkeit gesetzt/leer sind
+  $Table.Controls["CN"].Add_TextChanged({$this.Parent.Controls["Button"].Enabled = if ($this.Text -And $this.Parent.Controls["nA"].Text) {$true} else {$false}})
+  $Table.Controls["nA"].Add_TextChanged({$this.Parent.Controls["Button"].Enabled = if ($this.Text -And $this.Parent.Controls["CN"].Text) {$true} else {$false}})
+
+  # Zeichenbeschränkungen:   Ländercode = 0-2 Buchstaben   ;   Gültigkeit = Zahlen 1-99
+  $Table.Controls["C","nA"].Add_KeyPress({
+    $_.KeyChar = [Char]::toUpper($_.KeyChar)
+    # Bei Strg+V prüfen, ob Ergebnis den Anforderungen entspricht
+    if ($_.KeyChar -eq 22) {if ($this.Text.Remove($this.SelectionStart,$this.SelectionLength).Insert($this.SelectionStart,(Get-Clipboard)) -NotMatch $this.Tag) {$_.Handled=$true;break} else {break}}
+    elseIf (![Char]::isControl($_.KeyChar) -and $this.Text.Remove($this.SelectionStart,$this.SelectionLength).Insert($this.SelectionStart,$_.KeyChar) -NotMatch $this.Tag) {$_.Handled=$true}
+  })
   
-  # Ausführung                                                                                                            #region
+  # Bei Button-Klick Fenster verstecken & Button-Tag auf true setzen
+  $Table.Controls["Button"].Add_Click({$this.Tag=$true;$this.TopLevelControl.Hide()})
+  
+  # Fenstersteuerung mit Tastatur:   Escape = Abbrechen   ;   Enter = Button auslösen
+  $Form.Add_KeyDown({Switch ($_.KeyCode){
+    "Return" {$this.Controls["Table"].Controls["Button"].PerformClick()}
+    "Escape" {$this.Hide()}
+  }})
+  
+  $Form.Add_Load({
+    $this.MaximumSize = "1920,{0}" -f $this.height
+  })
+#endregion Events
+
+#region Run
+  try {
     [void]$Form.ShowDialog()
     if (!$Button.Tag) {throw "Abbruch. "}
     
@@ -106,24 +109,18 @@ try {
     $Root.Open("ReadWrite")
     $Root.Add($Export)
     Write-Host -F green "erfolgreich. "
-    $Root.Close()
     
     Write-Host -N "Installiere Zertifikat in ""Vertauenswürdige Herausgeber""... "
     $Trusted  = Get-Item "Cert:\$SL\TrustedPublisher"
     $Trusted.Open("ReadWrite")
     $Trusted.Add($Export)
     Write-Host -F green "erfolgreich. "
-  # /Ausführung                                                                                                           #endregion
-  
-} catch {
-
-  # Fehlerbehandlung                                                                                                      #region
+    $esc = [char]27
+    Write-Host ("`nIhr Zertifikat wurde erzeugt und installiert. `n`n  Fingerabdruck:          $esc[93m{0}$esc[0m `n`n  Öffentlicher Schlüssel: $esc[93;4m{1}$esc[0m `n" -f $Cert.Thumbprint,$Export)
+  } catch {
     Write-Host -f red $_.Exception.Message
-    
-    if ($Cert) {rm ("Cert:\CurrentUser\My\{0}" -f $Cert.Thumbprint)}
-    if ($Export) {rm $Export}
-    return
-  # /Fehlerbehandlung                                                                                                     #endregion
-  
-}
-Write-Host ("`nIhr Zertifikat wurde erzeugt und installiert. `n`n  Fingerabdruck: {0}" -F $Cert.Thumbprint)
+  } finally {
+    if ($Root)    {$Root.Close()}
+    if ($Trusted) {$Trusted.Close()}
+  }
+#endregion Run
